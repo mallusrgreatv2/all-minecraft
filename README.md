@@ -34,7 +34,7 @@ server.serverInfo().then(console.log);
 
 ##### [Expected Output](https://pastes.dev/9yfopsNdvo)
 
-#### MinecraftServreInfo.query
+#### MinecraftServerInfo.query
 
 ```javascript
 const server = new MinecraftServerInfo({
