@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import axios from "axios";
-import { SkinFacing as Facing } from "../typing";
+import { Facing as Facing } from "../typing";
 export class MinecraftPlayerInfo {
     /**
      *

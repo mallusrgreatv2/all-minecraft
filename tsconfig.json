@@ -3,7 +3,6 @@
         "allowSyntheticDefaultImports": true,
         "declaration": true,
         "esModuleInterop": true,
-        "jsx": "react",
         "lib": ["es5", "es2015", "es2016", "dom", "esnext"],
         "types": ["node"],
         "module": "es2015",
@@ -14,8 +13,6 @@
         "sourceMap": true,
         "strict": true,
         "target": "es6",
-        "declarationDir": "./typings",
-        "declarationMap": true
     },
     "include": ["src/**/*.ts"],
 }

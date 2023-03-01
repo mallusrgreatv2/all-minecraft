@@ -1,4 +1,4 @@
-import { PlayerInfo, PlayerInfoUUIDUsernameSearch, SkinFacing as Facing } from "../typing";
+import { PlayerInfo, PlayerInfoUUIDUsernameSearch, Facing as Facing } from "../typing";
 export declare class MinecraftPlayerInfo {
     private usernameOrUUID;
     private minetoolsBaseURL;
@@ -44,4 +44,3 @@ export declare class MinecraftPlayerInfo {
         skin: string;
     };
 }
-//# sourceMappingURL=index.d.ts.map

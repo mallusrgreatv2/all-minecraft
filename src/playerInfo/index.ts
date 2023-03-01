@@ -1,5 +1,5 @@
 import axios from "axios";
-import { PlayerInfo, PlayerInfoUUIDUsernameSearch, SkinFacing as Facing } from "../typing";
+import { PlayerInfo, PlayerInfoUUIDUsernameSearch, Facing as Facing } from "../typing";
 export class MinecraftPlayerInfo {
   private usernameOrUUID;
   private minetoolsBaseURL = "https://api.minetools.eu/";

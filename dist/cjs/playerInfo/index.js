@@ -68,10 +68,10 @@ class MinecraftPlayerInfo {
     getSkin(props = {
         helm: false,
         extension: "png",
-        facing: typing_1.SkinFacing.Right,
+        facing: typing_1.Facing.Right,
     }) {
         const avatar = {
-            skinIsometric: `${this.mcHeadsBaseURL}body/${this.usernameOrUUID}${props.size ? `/${props.size}` : ""}/${props.helm ? "helm" : "nohelm"}/${props.facing == typing_1.SkinFacing.Left ? "right" : "left"}.${props.extension}`,
+            skinIsometric: `${this.mcHeadsBaseURL}body/${this.usernameOrUUID}${props.size ? `/${props.size}` : ""}/${props.helm ? "helm" : "nohelm"}/${props.facing == typing_1.Facing.Left ? "right" : "left"}.${props.extension}`,
             skin: `${this.mcHeadsBaseURL}player/${this.usernameOrUUID}${props.size ? `/${props.size}` : ""}/${props.helm ? "helm" : "nohelm"}.${props.extension}`,
         };
         return avatar;

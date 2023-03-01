@@ -6,5 +6,8 @@
   "type": "module",
   "dependencies": {
     "all-minecraft": "../"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
   }
 }

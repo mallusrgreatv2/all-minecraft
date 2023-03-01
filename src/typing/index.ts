@@ -110,7 +110,7 @@ export interface QueryServer {
   last_updated: string;
   duration: string;
 }
-export enum SkinFacing {
+export enum Facing {
   Left = 0,
   Right = 1,
 }

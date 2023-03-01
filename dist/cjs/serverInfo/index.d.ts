@@ -47,4 +47,3 @@ export declare class MinecraftServerInfo {
     }>;
     favicon(): string;
 }
-//# sourceMappingURL=index.d.ts.map
