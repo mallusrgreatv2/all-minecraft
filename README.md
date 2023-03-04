@@ -1,3 +1,12 @@
+<p align="center">
+  <a href="https://discord.gg/J8F5ZVkanh">
+    <img alt="Discord" src="https://img.shields.io/discord/1046120096294260826?color=5865F2&logo=discord&logoColor=blue" >
+  </a>
+  <a href="https://www.npmjs.com/package/all-minecraft">
+    <img alt="NPM" src="https://img.shields.io/npm/v/all-minecraft">
+  </a>
+</p>
+
 # all-minecraft
 
 ## Installation
