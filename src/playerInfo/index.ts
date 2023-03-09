@@ -2,7 +2,7 @@ import axios from "axios";
 import { PlayerInfo, PlayerInfoUUIDUsernameSearch, Facing as Facing } from "../typing";
 export class MinecraftPlayerInfo {
   private usernameOrUUID;
-  private minetoolsBaseURL = "https://api.minetools.eu/";
+  private minetoolsBaseURL = "http://api.minetools.eu/";
   private mcHeadsBaseURL = "https://mc-heads.net/";
   private uuid: string | undefined = undefined;
   /**

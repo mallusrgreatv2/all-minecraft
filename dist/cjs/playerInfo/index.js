@@ -22,7 +22,7 @@ class MinecraftPlayerInfo {
      * @returns void
      */
     constructor({ usernameOrUUID }) {
-        this.minetoolsBaseURL = "https://api.minetools.eu/";
+        this.minetoolsBaseURL = "http://api.minetools.eu/";
         this.mcHeadsBaseURL = "https://mc-heads.net/";
         this.uuid = undefined;
         this.usernameOrUUID = usernameOrUUID;
