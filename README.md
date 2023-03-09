@@ -105,44 +105,13 @@ console.log(
 
 ##### [Expected Output](https://pastes.dev/6PGy3mmz7b)
 
-#### MinecraftPlayerInfo.getPlayer (Cache)
+#### MinecraftPlayerInfo.getPlayerInfo
 
 ```javascript
-player.getPlayer().then(console.log);
+player.getPlayerInfo().then(console.log);
 ```
 
-##### [Expected Output](https://pastes.dev/veqvThlsdz)
-
-#### MinecraftPlayerInfo.getCachedUUID
-
-```javascript
-console.log("Before Caching: " + player.getCachedUUID);
-player.getPlayer().then(() => {
-  console.log("After Caching: " + player.getCachedUUID);
-});
-
-```
-
-##### Output
-
-```text
-Before Caching: undefined
-After Caching: 318949122b224fadaecd46f1f92c3f1e
-```
-
-#### Making use of cache
-
-```javascript
-player.getPlayer().then(() => {
-  const plr = new MinecraftPlayerInfo({
-    usernameOrUUID: player.getCachedUUID,
-  });
-  plr.getPlayerInfo().then(console.log);
-});
-
-```
-
-##### [Expected Output](https://pastes.dev/lQ42lkM72T)
+##### [Expected Output](https://pastes.dev/EvDGaIQHKe)
 
 #### Other
 

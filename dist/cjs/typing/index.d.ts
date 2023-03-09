@@ -5,40 +5,29 @@ export interface Cache {
     cached_at: number;
     cached_until: number;
 }
-export interface PlayerInfoUUIDUsernameSearch {
-    cache: Cache;
-    id: string;
-    name: string;
-    status: string;
+export interface Username_history {
+    username: string;
 }
-export interface SKIN {
+export interface Skin {
     url: string;
-}
-export interface Texture {
-    sKIN: SKIN;
-}
-export interface Decoded {
-    profileId: string;
-    profileName: string;
-    signatureRequired: boolean;
-    textures: Texture;
-    timestamp: number;
-}
-export interface Property {
-    name: string;
-    signature: string;
-    value: string;
+    data: string;
 }
 export interface Raw {
-    cache: Cache;
-    id: string;
-    name: string;
-    properties: Property[];
-    status: string;
+    value: string;
+    signature: string;
+}
+export interface Texture {
+    custom: boolean;
+    slim: boolean;
+    skin: Skin;
+    raw: Raw;
 }
 export interface PlayerInfo {
-    decoded: Decoded;
-    raw: Raw;
+    uuid: string;
+    username: string;
+    username_history: Username_history[];
+    textures: Texture;
+    created_at?: any;
 }
 export interface ServerCache {
     bannerURL?: string;

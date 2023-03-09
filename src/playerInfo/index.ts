@@ -1,47 +1,33 @@
 import axios from "axios";
-import { PlayerInfo, PlayerInfoUUIDUsernameSearch, Facing as Facing } from "../typing";
+import { PlayerInfo, Facing as Facing } from "../typing";
+import PlayerInfoError from "../utils/PlayerInfoError";
 export class MinecraftPlayerInfo {
   private usernameOrUUID;
-  private minetoolsBaseURL = "http://api.minetools.eu/";
   private mcHeadsBaseURL = "https://mc-heads.net/";
-  private uuid: string | undefined = undefined;
+  private ashconBaseURL = "https://api.ashcon.app/mojang/v2/user/";
   /**
    *
    * @param param0 { usernameOrUUID: string }
    * @returns void
    */
   constructor({ usernameOrUUID }: { usernameOrUUID: string }) {
+    if (!usernameOrUUID) throw new Error("Username should be given.");
+    const usernameRegex = /^[a-zA-Z0-9_]{2,16}$/gm;
+    const uuidRegex = /^[a-zA-Z0-9-]{2,36}$/gm;
+    if (usernameOrUUID.length === 36 && !uuidRegex.test(usernameOrUUID as string))
+      throw new PlayerInfoError("Invalid uuid");
+    if (!usernameRegex.test(usernameOrUUID)) throw new PlayerInfoError("Invalid username");
     this.usernameOrUUID = usernameOrUUID;
   }
   get getUsernameOrUUID() {
     return this.usernameOrUUID;
   }
   /**
-   *
-   * @description {usernameOrUUID} MUST be a UUID / Username!
-   * @returns PlayerInfoUUIDUsernameSearch
-   */
-  async getPlayer() {
-    const obj: PlayerInfoUUIDUsernameSearch = (
-      await axios.get(`${this.minetoolsBaseURL}uuid/${this.usernameOrUUID}`)
-    ).data;
-    this.uuid = obj.id;
-    return obj;
-  }
-  /**
-   * @description Must specify UUID in constructor, or run getPlayer once for this to work!
    * @returns PlayerInfo
    */
   async getPlayerInfo() {
-    const obj: PlayerInfo = (
-      await axios.get(
-        `${this.minetoolsBaseURL}profile/${this.uuid ? this.uuid : this.usernameOrUUID}`
-      )
-    ).data;
+    const obj: PlayerInfo = (await axios.get(`${this.ashconBaseURL}${this.usernameOrUUID}`)).data;
     return obj;
-  }
-  get getCachedUUID() {
-    return this.uuid;
   }
   getHead(
     props: { size?: number; helm?: boolean; extension?: string; facing?: "left" | "right" } = {

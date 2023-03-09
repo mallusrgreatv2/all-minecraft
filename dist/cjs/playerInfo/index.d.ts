@@ -1,9 +1,8 @@
-import { PlayerInfo, PlayerInfoUUIDUsernameSearch, Facing as Facing } from "../typing";
+import { PlayerInfo, Facing as Facing } from "../typing";
 export declare class MinecraftPlayerInfo {
     private usernameOrUUID;
-    private minetoolsBaseURL;
     private mcHeadsBaseURL;
-    private uuid;
+    private ashconBaseURL;
     /**
      *
      * @param param0 { usernameOrUUID: string }
@@ -14,17 +13,9 @@ export declare class MinecraftPlayerInfo {
     });
     get getUsernameOrUUID(): string;
     /**
-     *
-     * @description {usernameOrUUID} MUST be a UUID / Username!
-     * @returns PlayerInfoUUIDUsernameSearch
-     */
-    getPlayer(): Promise<PlayerInfoUUIDUsernameSearch>;
-    /**
-     * @description Must specify UUID in constructor, or run getPlayer once for this to work!
      * @returns PlayerInfo
      */
     getPlayerInfo(): Promise<PlayerInfo>;
-    get getCachedUUID(): string | undefined;
     getHead(props?: {
         size?: number;
         helm?: boolean;

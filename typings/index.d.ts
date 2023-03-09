@@ -1,4 +1,4 @@
-import { Facing, PlayerInfoUUIDUsernameSearch, PlayerInfo } from "./typing";
+import { Facing, PlayerInfo } from "./typing";
 declare module "all-minecraft" {
   class MinecraftPlayerInfo {
     private usernameOrUUID;
@@ -8,19 +8,12 @@ declare module "all-minecraft" {
     /**
      *
      * @param param0 { usernameOrUUID: string }
-     * @returns void
+     * @returns {void}
      */
     constructor({ usernameOrUUID }: { usernameOrUUID: string });
     get getUsernameOrUUID(): string;
     /**
-     *
-     * @description {usernameOrUUID} MUST be a UUID / Username!
-     * @returns PlayerInfoUUIDUsernameSearch
-     */
-    getPlayer(): Promise<PlayerInfoUUIDUsernameSearch>;
-    /**
-     * @description Must specify UUID in constructor, or run getPlayer once for this to work!
-     * @returns PlayerInfo
+     * @returns {PlayerInfo}
      */
     getPlayerInfo(): Promise<PlayerInfo>;
     get getCachedUUID(): string | undefined;

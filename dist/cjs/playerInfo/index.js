@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MinecraftPlayerInfo = void 0;
 const axios_1 = __importDefault(require("axios"));
 const typing_1 = require("../typing");
+const PlayerInfoError_1 = __importDefault(require("../utils/PlayerInfoError"));
 class MinecraftPlayerInfo {
     /**
      *
@@ -22,38 +23,29 @@ class MinecraftPlayerInfo {
      * @returns void
      */
     constructor({ usernameOrUUID }) {
-        this.minetoolsBaseURL = "http://api.minetools.eu/";
         this.mcHeadsBaseURL = "https://mc-heads.net/";
-        this.uuid = undefined;
+        this.ashconBaseURL = "https://api.ashcon.app/mojang/v2/user/";
+        if (!usernameOrUUID)
+            throw new Error("Username should be given.");
+        const usernameRegex = /^[a-zA-Z0-9_]{2,16}$/gm;
+        const uuidRegex = /^[a-zA-Z0-9-]{2,36}$/gm;
+        if (usernameOrUUID.length === 36 && !uuidRegex.test(usernameOrUUID))
+            throw new PlayerInfoError_1.default("Invalid uuid");
+        if (!usernameRegex.test(usernameOrUUID))
+            throw new PlayerInfoError_1.default("Invalid username");
         this.usernameOrUUID = usernameOrUUID;
     }
     get getUsernameOrUUID() {
         return this.usernameOrUUID;
     }
     /**
-     *
-     * @description {usernameOrUUID} MUST be a UUID / Username!
-     * @returns PlayerInfoUUIDUsernameSearch
-     */
-    getPlayer() {
-        return __awaiter(this, void 0, void 0, function* () {
-            const obj = (yield axios_1.default.get(`${this.minetoolsBaseURL}uuid/${this.usernameOrUUID}`)).data;
-            this.uuid = obj.id;
-            return obj;
-        });
-    }
-    /**
-     * @description Must specify UUID in constructor, or run getPlayer once for this to work!
      * @returns PlayerInfo
      */
     getPlayerInfo() {
         return __awaiter(this, void 0, void 0, function* () {
-            const obj = (yield axios_1.default.get(`${this.minetoolsBaseURL}profile/${this.uuid ? this.uuid : this.usernameOrUUID}`)).data;
+            const obj = (yield axios_1.default.get(`${this.ashconBaseURL}${this.usernameOrUUID}`)).data;
             return obj;
         });
-    }
-    get getCachedUUID() {
-        return this.uuid;
     }
     getHead(props = {
         helm: false,
