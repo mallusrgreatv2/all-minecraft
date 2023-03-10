@@ -16,7 +16,6 @@ declare module "all-minecraft" {
      * @returns {PlayerInfo}
      */
     getPlayerInfo(): Promise<PlayerInfo>;
-    get getCachedUUID(): string | undefined;
     getHead(props?: {
       size?: number;
       helm?: boolean;
